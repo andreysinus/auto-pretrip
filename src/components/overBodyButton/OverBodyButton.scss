@@ -17,6 +17,9 @@
         text-transform: uppercase;
         color: #FFFFFF;
     }
+    &__img{
+        margin-top: 2px;
+    }
 }
 .overbodybutton.active{
     background: linear-gradient(63.8deg, #324167 -53.91%, #A468B8 104.71%);
