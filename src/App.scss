@@ -1,0 +1,53 @@
+*{box-sizing: border-box;}
+.App{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center ;
+    margin:0 auto;
+}
+
+.logo{
+    margin-top: -70px;
+    width: 232px;
+    &__anim{
+        animation: logoAnim 2s forwards ease;
+        -webkit-transform: translate3d(0,0,0);
+        will-change: transform;
+      }
+      &__anim2{
+        animation: logoAnim2 2s forwards ease;
+        -webkit-transform: translate3d(0,0,0);
+        will-change: transform;
+      }
+  }
+  
+  @keyframes logoAnim {
+    0%{
+      transform: translateY(200px);
+      transform: scale(0);
+      opacity: 0;
+    }
+    50%{
+      transform: translateY(200px);
+      transform: scale(1);
+      opacity: 1;
+    }
+    100%{
+      transform: translateY(0);
+      transform: scale(0.25);
+      opacity: 1;
+    }
+  }
+  @keyframes logoAnim2 {
+    0%{
+      transform: translateY(200px);
+    }
+    50%{
+      transform: translateY(200px);
+    }
+    100%{
+      transform: translateY(0);
+    }
+  }
+  

@@ -1,0 +1,43 @@
+.quizButts{
+
+    &__title{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 125%;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+    &__butts{
+        height: 60px;
+        width: 100%;
+        background: #D9D9D9;
+        border-radius: 9px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        &-btn{
+            width: 115px;
+            border: 0;
+            background-color: white;
+            border-radius: 9px;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 125%;
+            transition: 0.5s ease;
+            color: #3e3e3e;
+            &.active{
+                background: linear-gradient(63.8deg, #324167 -53.91%, #A468B8 104.71%);
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+                color: white;
+            }
+        }
+    }
+}
+
+.block{
+    height: 60px;
+    width: 60px;
+    background: white;
+    margin-right: 10px;
+    border-radius: 9px;
+}
