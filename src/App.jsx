@@ -8,7 +8,7 @@ import Quiz from './screens/quiz/Quiz'
 
 function App() {
   const [bodyState, setBodyState] = useState("1")
-  const [overBodyButt, setOverBodyButt] = useState(true)
+  const [overBodyButt, setOverBodyButt] = useState(false)
   return (
     <div className='App'>
       <div className="logo__anim"><Logo /></div>
