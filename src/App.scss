@@ -5,6 +5,19 @@
     align-items: center;
     justify-content: center ;
     margin:0 auto;
+    &__body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(50%);
+      animation: bodyAnim 1s forwards ease;
+      animation-delay: 1.2s;
+      -webkit-transform: translate3d(0,0,0);
+      will-change: transform;
+
+    }
 }
 
 .logo{
@@ -51,3 +64,17 @@
     }
   }
   
+  @keyframes bodyAnim {
+    0%{
+      transform: translateY(50%);
+      opacity: 0;
+    }
+    20%{
+      transform: translateY(50%);
+      opacity: 0;
+    }
+    100%{
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }

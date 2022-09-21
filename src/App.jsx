@@ -12,9 +12,11 @@ function App() {
   return (
     <div className='App'>
       <div className="logo__anim"><Logo /></div>
-      <OverBodyButton overBodyButt={overBodyButt} setOverBodyButt={setOverBodyButt} bodyState={bodyState} setBodyState={setBodyState} />
-      {bodyState==="1"?<Quiz />:
-      <PhotoAccept />}
+      <div className='App__body'>
+        <OverBodyButton overBodyButt={overBodyButt} setOverBodyButt={setOverBodyButt} bodyState={bodyState} setBodyState={setBodyState} />
+        {bodyState==="1"?<Quiz />:
+        <PhotoAccept />}
+      </div>
     </div>
   )
 }
