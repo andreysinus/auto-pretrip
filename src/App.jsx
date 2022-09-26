@@ -7,7 +7,7 @@ import queryString from "query-string"
 const axios = require('axios');
 
 function App() {
-  const [bodyState, setBodyState] = useState("1")
+  const [bodyState, setBodyState] = useState(false)
   const [isFirst, setIsFirst] = useState(true)
   const [overBodyButt, setOverBodyButt] = useState(false)
   const [quizList, setQuizList] = useState([])
