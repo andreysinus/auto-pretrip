@@ -17,7 +17,7 @@ function Quiz(props) {
               <QuizButts quizButt={quizButt} setQuizButt={setQuizButt} title="В порядке?"/>
           </div>
           <div>
-              {props.quizList[props.quizStep].Photo===false?<QuizPhotos quizImg={quizImg} setQuizImg={setQuizImg}/>:<></>}
+              {props.quizList[props.quizStep].Photo===true?<QuizPhotos quizImg={quizImg} setQuizImg={setQuizImg}/>:<></>}
               <button className='quiz__button' onClick={()=>{
                 if (props.quizStep===props.quizList.length-1){
                   props.setQuizQuality(props.quizStep, quizButt)
