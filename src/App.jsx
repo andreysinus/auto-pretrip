@@ -28,7 +28,7 @@ function App() {
       if (typeof(response.data) !== 'string'){ 
         response.data.map((text, index)=>{
           if (text.Check_name!=="Фотографии транспортного средства"){
-          array[index] = {Check_name:text.Check_name, Active:text.Active, Photo:text.Photo, quality: undefined, photos:undefined}
+          array[index] = {Check_name:text.Check_name, Active:text.Active, Photo:text.Photo, quality: false, photos:undefined}
           }
           return<></>
         })
