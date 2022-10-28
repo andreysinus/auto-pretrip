@@ -1,18 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.scss'
 import Logo from './components/logo/logo'
 import OverBodyButton from './components/overBodyButton/OverBodyButton'
 import Body from './screens/body'
 import queryString from "query-string"
 const axios = require('axios');
-
+const telegram=window.Telegram.WebApp
 function App() {
   const [bodyState, setBodyState] = useState(false)
   const [isFirst, setIsFirst] = useState(true)
   const [overBodyButt, setOverBodyButt] = useState(false)
   const [quizList, setQuizList] = useState([])
   const queryParams = queryString.parse(window.location.search)
-
+  useEffect(()=>{
+    telegram.expand();
+    telegram.ready();
+  })
   if (isFirst){
     let config = {
       method: 'get',

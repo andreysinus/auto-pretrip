@@ -4,7 +4,7 @@ import queryString from "query-string"
 import SignaturePad from 'react-signature-canvas';
 const axios = require('axios');
 const queryParams = queryString.parse(window.location.search)
-
+const telegram=window.Telegram.WebApp
 function FinalScreen(props) {
   const regex = /data:.*base64,/
   let list = { 
@@ -14,7 +14,8 @@ function FinalScreen(props) {
   "Status":true,
   "Odometer":Number(queryParams.odo),
   "Photos":[],
-  "Checklist":[]}
+  "Checklist":[],
+  "Sign":""}
 
   props.quizList.map((text)=>{
     list.Checklist.push({"Check_name":text.Check_name, "Active":text.quality})
@@ -26,10 +27,11 @@ function FinalScreen(props) {
   })
 
   function sendData(){
-    list.push({"Sign":getSignature.replace(regex, "")})
+    let res = undefined
+    list.Sign=getSignature().replace(regex, "")
     let config = {
       method: 'post',
-      url: 'https://тест.атимо.рф/Taksopark/hs/WebApp/CreateTO',
+      url: 'https://тест.атимо.рф/ATM/hs/WebApp/CreateTO',
       headers: { 
         'Authorization': 'Basic V0E6V2E1ODUxMzM1'
       },
@@ -37,12 +39,18 @@ function FinalScreen(props) {
     };
     
     axios(config)
-    .then((response) => {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+            .then((response) => {
+              res = "Акт был сформирован"
+              telegram.sendData(res)
+            })
+            .catch((error) => {
+                console.log(error)
+              res = error.response.data.Error;
+              if (res===undefined){
+                 res="Ошибка выполнения запроса передачи информации"
+              }
+              telegram.sendData(res)
+            });
   }
   const sigCanvas = useRef({});
     
