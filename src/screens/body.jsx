@@ -10,7 +10,7 @@ function Body(props) {
   return (
     <div>
         {props.bodyState===false?<Quiz setBodyState={props.setBodyState} quizList={props.quizList} setQuizList={props.setQuizList} quizStep={quizStep} setQuizStep={setQuizStep} setQuizQuality={props.setQuizQuality}/>:
-        photoAcceptState<5?<PhotoAccept photoAcceptState={photoAcceptState} setPhotoAcceptState={setPhotoAcceptState} imgs={imgs} setImgs={setImgs}/>:<FinalScreen imgs={imgs} quizList={props.quizList} photoAcceptState={photoAcceptState} setPhotoAcceptState={setPhotoAcceptState}/> }
+        photoAcceptState<5?<PhotoAccept photoAcceptState={photoAcceptState} setPhotoAcceptState={setPhotoAcceptState} imgs={imgs} setImgs={setImgs}/>:<FinalScreen imgs={imgs} quizList={props.quizList} overBodyButt={props.overBodyButt} photoAcceptState={photoAcceptState} setPhotoAcceptState={setPhotoAcceptState}/> }
     </div>
   )
 }

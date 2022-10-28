@@ -18,7 +18,12 @@ function FinalScreen(props) {
   "Sign":""}
 
   props.quizList.map((text)=>{
-    list.Checklist.push({"Check_name":text.Check_name, "Active":text.quality})
+    if (props.overBodyButt===true){
+      list.Checklist.push({"Check_name":text.Check_name, "Active":true})
+    }
+    else{
+      list.Checklist.push({"Check_name":text.Check_name, "Active":text.quality})
+    }
     return <></>
   })
   props.imgs.map((text)=>{
