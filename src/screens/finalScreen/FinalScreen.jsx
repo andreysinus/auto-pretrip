@@ -1,11 +1,17 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import './FinalScreen.scss'
 import queryString from "query-string"
 import SignaturePad from 'react-signature-canvas';
+import LoadingPage from '../../components/loading/loadingPage';
 const axios = require('axios');
 const queryParams = queryString.parse(window.location.search)
 const telegram=window.Telegram.WebApp
+
+
 function FinalScreen(props) {
+
+  const [visibleLoading, setVisibleLoading] = useState(false)
+
   const regex = /data:.*base64,/
   let list = { 
   "Mechanic_phone": queryParams.mechPhone,
@@ -42,7 +48,7 @@ function FinalScreen(props) {
       },
       data : list
     };
-    
+    setVisibleLoading(true)
     axios(config)
             .then((response) => {
               res = "Акт был сформирован"
@@ -64,18 +70,23 @@ function FinalScreen(props) {
   }
   console.log(list)
   return (
-    <div className='finalscreen'>
-        <button className='finalscreen__button' onClick={()=>props.setPhotoAcceptState(4)}>Назад</button>
-        <p className='finalscreen__title'>Распишитесь</p>
-        <div className="signaturepart">
-                <div className='signaturepart__pole'>
-                    <SignaturePad ref={sigCanvas}
-                    canvasProps={{
-                        className: 'signaturepart__field'
-                    }}/>
-                </div>
-            </div>
-        <button className='finalscreen__button active' onClick={()=>{sendData()}}>Выдать авто</button>
+    <div>
+      {visibleLoading? <div className="finalscreen__loading">
+              <LoadingPage/>
+              </div>: <></>}
+      <div className='finalscreen'>
+          <button className='finalscreen__button' onClick={()=>props.setPhotoAcceptState(4)}>Назад</button>
+          <p className='finalscreen__title'>Распишитесь</p>
+          <div className="signaturepart">
+                  <div className='signaturepart__pole'>
+                      <SignaturePad ref={sigCanvas}
+                      canvasProps={{
+                          className: 'signaturepart__field'
+                      }}/>
+                  </div>
+              </div>
+          <button className='finalscreen__button active' onClick={()=>{sendData()}}>Выдать авто</button>
+      </div>
     </div>
   )
 }
