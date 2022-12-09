@@ -3,6 +3,7 @@ import './FinalScreen.scss'
 import queryString from "query-string"
 import SignaturePad from 'react-signature-canvas';
 import LoadingPage from '../../components/loading/loadingPage';
+import { useTranslation } from 'react-i18next';
 const axios = require('axios');
 const queryParams = queryString.parse(window.location.search)
 const telegram=window.Telegram.WebApp
@@ -36,8 +37,9 @@ function FinalScreen(props) {
     list.Photos.push({"data":text.replace(regex, "")})
     return <></>
   })
-
+  const { t, i18n } = useTranslation();
   function sendData(){
+    
     let res = undefined
     list.Sign=getSignature().replace(regex, "")
     let config = {
@@ -75,8 +77,8 @@ function FinalScreen(props) {
               <LoadingPage/>
               </div>: <></>}
       <div className='finalscreen'>
-          <button className='finalscreen__button' onClick={()=>props.setPhotoAcceptState(4)}>Назад</button>
-          <p className='finalscreen__title'>Распишитесь</p>
+          <button className='finalscreen__button' onClick={()=>props.setPhotoAcceptState(4)}>{t("back")}</button>
+          <p className='finalscreen__title'>{t("sign")}</p>
           <div className="signaturepart">
                   <div className='signaturepart__pole'>
                       <SignaturePad ref={sigCanvas}
@@ -85,7 +87,7 @@ function FinalScreen(props) {
                       }}/>
                   </div>
               </div>
-          <button className='finalscreen__button active' onClick={()=>{sendData()}}>Выдать авто</button>
+          <button className='finalscreen__button active' onClick={()=>{sendData()}}>{t("giveCar")}</button>
       </div>
     </div>
   )

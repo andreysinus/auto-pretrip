@@ -1,0 +1,15 @@
+{
+    "next": "Next",
+    "inOrder": "It's ok?",
+    "yes": "Yes",
+    "no": "No",
+    "carIsOk": "The car is OK",
+    "frontPhoto": "Take a photo of the front of the car",
+    "rightPhoto": "Take a photo of the right side of the car",
+    "backPhoto": "Take a photo of the back of the car",
+    "leftPhoto": "Take a photo of the left side of the car",
+    "back": "Back",
+    "sign": "Sign",
+    "giveCar": "Give a car",
+    "emptyList": "The list of checks is empty"
+}

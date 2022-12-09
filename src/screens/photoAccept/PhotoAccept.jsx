@@ -2,7 +2,10 @@ import React, { useReducer} from 'react'
 import './PhotoAccept.scss'
 import {Upload} from 'antd'
 import Resizer from "react-image-file-resizer";
+import { useTranslation } from "react-i18next";
 
+
+  
 function getBase64(file, cb) {
   let reader = new FileReader();
   reader.readAsDataURL(file);
@@ -15,14 +18,14 @@ function getBase64(file, cb) {
 }
 
 function PhotoAccept(props) {
-
+  const { t, i18n } = useTranslation();
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
   let part="null"
   switch (props.photoAcceptState){
-    case 1: part="передней"; break;
-    case 2: part="правой"; break;
-    case 3: part="задней"; break;
-    case 4: part="левой"; break;
+    case 1: part="frontPhoto"; break;
+    case 2: part="rightPhoto"; break;
+    case 3: part="backPhoto"; break;
+    case 4: part="leftPhoto"; break;
     default: break;
   }
 
@@ -34,7 +37,7 @@ function PhotoAccept(props) {
   }
   return(
     <div className='photoAccept'>
-      <p className="photoAccept__title">Сделайте фото<br/>{part} части авто</p>
+      <p className="photoAccept__title">{t(part)}</p>
       <Upload
                   showUploadList={false}
                   listType="picture-card"
@@ -77,8 +80,8 @@ function PhotoAccept(props) {
       </div>
       </Upload>
       <div className='photoAccept__btns'>
-        {props.photoAcceptState!==1?<button className='photoAccept__button back' onClick={()=>props.setPhotoAcceptState(props.photoAcceptState-1)}>Назад</button>:<></>}
-        <button className={props.imgs[props.photoAcceptState-1]!==undefined ? 'photoAccept__button active':'photoAccept__button'} onClick={()=>{if(props.imgs[props.photoAcceptState-1]!==undefined){props.setPhotoAcceptState(props.photoAcceptState+1)}}}>Далее</button>
+        {props.photoAcceptState!==1?<button className='photoAccept__button back' onClick={()=>props.setPhotoAcceptState(props.photoAcceptState-1)}>{t("back")}</button>:<></>}
+        <button className={props.imgs[props.photoAcceptState-1]!==undefined ? 'photoAccept__button active':'photoAccept__button'} onClick={()=>{if(props.imgs[props.photoAcceptState-1]!==undefined){props.setPhotoAcceptState(props.photoAcceptState+1)}}}>{t("next")}</button>
       </div>
     </div>
   )

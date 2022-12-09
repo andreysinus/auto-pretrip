@@ -2,8 +2,13 @@ import React, { useState } from 'react'
 import QuizButts from '../../components/quizButts/QuizButts'
 import QuizPhotos from '../../components/quizPhotos/quizPhotos'
 import './Quiz.scss'
+import { useTranslation } from "react-i18next";
 
+
+
+  
 function Quiz(props) {
+  const { t, i18n } = useTranslation();
     const [quizButt, setQuizButt] = useState(true)
     const [quizImg, setQuizImg] = useState([])
 
@@ -14,7 +19,7 @@ function Quiz(props) {
             <div className='quiz__cont'>
               <p className='quiz__title'>{props.quizList[props.quizStep].Check_name}</p>
               </div>
-              <QuizButts quizButt={quizButt} setQuizButt={setQuizButt} title="В порядке?"/>
+              <QuizButts quizButt={quizButt} setQuizButt={setQuizButt} title={t("inOrder")}/>
           </div>
           <div>
               {props.quizList[props.quizStep].Photo===true?<QuizPhotos quizImg={quizImg} setQuizImg={setQuizImg}/>:<></>}
@@ -28,11 +33,11 @@ function Quiz(props) {
                   props.setQuizStep(Number(props.quizStep)+1)
                   setQuizButt(true)
                 }
-              }}>Далее</button>
+              }}>{t("next")}</button>
           </div>
       </div>:
       <div className='quiz'>
-        <p className="quiz__title empty">Список проверок пустой.</p>
+        <p className="quiz__title empty">{t("emptyList")}</p>
         <button className='quiz__button' onClick={()=>{props.setBodyState("2")}}>Далее</button>
       </div>}
     </>
