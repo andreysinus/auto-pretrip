@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 
   
 function Quiz(props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
     const [quizButt, setQuizButt] = useState(true)
     const [quizImg, setQuizImg] = useState([])
 

@@ -10,7 +10,7 @@ i18n
   .use (initReactI18next)
   .init({
     fallbackLng: queryString.parse(window.location.search).lang
-    =="ru"?"ru":"en",
+    ==="ru"?"ru":"en",
     debug: true,
     detection: {
       order: ['queryString', 'cookie'],

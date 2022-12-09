@@ -18,7 +18,7 @@ function getBase64(file, cb) {
 }
 
 function PhotoAccept(props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
   let part="null"
   switch (props.photoAcceptState){

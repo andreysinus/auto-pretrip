@@ -5,7 +5,7 @@ import notCheckedBox from '../../img/notCheckedBox.svg'
 import { useTranslation } from "react-i18next";
 
 function OverBodyButton(props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <button className={props.overBodyButt?"overbodybutton active":"overbodybutton"} onClick={()=>{if (props.overBodyButt===props.bodyState) {props.setOverBodyButt(!props.overBodyButt); if(props.overBodyButt===props.bodyState) props.setBodyState(!props.bodyState)}}}>
         <div className="overbodybutton__title">{t("carIsOk")}</div>

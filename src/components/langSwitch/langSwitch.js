@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import './langSwitch.scss'
 
 function LangSwitch(props) {
-    const { t, i18n } = useTranslation();
+    const {i18n } = useTranslation();
     var left='langSwitch_button'
     var right='langSwitch_button'
     if (i18n.language==="ru") left+=' active'; else right+=' active';

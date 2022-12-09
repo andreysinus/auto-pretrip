@@ -37,7 +37,7 @@ function FinalScreen(props) {
     list.Photos.push({"data":text.replace(regex, "")})
     return <></>
   })
-  const { t, i18n } = useTranslation();
+  const { t} = useTranslation();
   function sendData(){
     
     let res = undefined
